@@ -1,18 +1,18 @@
 import unittest
 
-from graph import Graph
-from hier_holzer import HierHolzer
+from src.graph import Graph
+from src.hier_holzer import HierHolzer
 
 
 class HierHolzerTests(unittest.TestCase):
     def test_koenigsberger_bruecken_no_cycle(self):
-        g1 = Graph('nets/eulerian_cycle_koenigsberger_bruecken.txt')
+        g1 = Graph('src/nets/eulerian_cycle_koenigsberger_bruecken.txt')
         hh1 = HierHolzer(g1)
         has_cycle, eu_cycle = hh1.hier_holzer()
         self.assertFalse(has_cycle)
 
     def test_eulerian_cycle_indicate_correct_cycle(self):
-        g1 = Graph('nets/teste_grafo_ciclo_euleriano_2.txt')
+        g1 = Graph('src/nets/teste_grafo_ciclo_euleriano_2.txt')
         hh1 = HierHolzer(g1)
         has_cycle, eu_cycle = hh1.hier_holzer()
         self.assertTrue(has_cycle)

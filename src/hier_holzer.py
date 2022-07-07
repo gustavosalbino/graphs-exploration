@@ -1,4 +1,4 @@
-from graph import *
+from src.graph import *
 
 
 class HierHolzer:
