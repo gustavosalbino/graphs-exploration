@@ -11,8 +11,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.8
-        run: |
-          <commands>
       - name: Display python version for sanity check
         run: python -c "import sys; print(sys.version)"
       - name: Execute tests
