@@ -1,8 +1,7 @@
-from graph import *
+from src.graph import *
 
 
 class HierHolzer:
-
     def __init__(self, g: Graph):
         self.g = g
 
@@ -65,7 +64,7 @@ class HierHolzer:
 
 
 if __name__ == "__main__":
-    g1 = Graph('nets/eulerian_cycle_koenigsberger_bruecken.txt')
+    g1 = Graph('nets/teste_grafo_ciclo_euleriano_2.txt')
     hH1 = HierHolzer(g1)
     has_cycle, eu_cycle = hH1.hier_holzer()
     if has_cycle:
