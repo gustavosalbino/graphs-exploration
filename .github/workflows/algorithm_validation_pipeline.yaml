@@ -7,7 +7,8 @@ jobs:
     name: Run validation tests
     runs-on: ubuntu-22.04
     steps:
-      - name: Setup Python 3.9
+      - uses: actions/checkout@v3
+      - name: Setup Python 3.8
         uses: actions/setup-python@v4
         with:
           python-version: 3.8
@@ -16,7 +17,7 @@ jobs:
           ls
           python -c "import sys; print(sys.version)"
       - name: Execute tests
-        run: python -m unittest discover
+        run: python -m unittest discover tests
 
 #  job_2:
 #    name: <name of the second job>
