@@ -12,7 +12,9 @@ jobs:
         with:
           python-version: 3.8
       - name: Display python version for sanity check
-        run: python -c "import sys; print(sys.version)"
+        run: |
+          ls
+          python -c "import sys; print(sys.version)"
       - name: Execute tests
         run: python -m unittest discover
 
