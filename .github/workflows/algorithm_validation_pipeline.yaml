@@ -12,20 +12,5 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.8
-      - name: Display python version for sanity check
-        run: |
-          ls
-          python -c "import sys; print(sys.version)"
       - name: Execute tests
         run: python -m unittest discover tests
-
-#  job_2:
-#    name: <name of the second job>
-#    runs-on: <type of machine to run the job on>
-#    steps:
-#      - name: <step 1>
-#        run: |
-#          <commands>
-#      - name: <step 2>
-#        run: |
-#          <commands>
