@@ -8,10 +8,9 @@ class HierHolzer:
 
     def search_euler_sub_cycle(self, g: Graph, v: Node, c: dict):
         cycle = [v]
-        initial_node = v
         current_node = v
         first_iteration = True
-        while current_node != initial_node or first_iteration:
+        while current_node != v or first_iteration:
             non_visited_edge_attached_to_x_exists = False
             first_iteration = False
             edge = None
@@ -66,13 +65,13 @@ class HierHolzer:
 
 
 if __name__ == "__main__":
-    g1 = Graph('nets/teste_grafo_ciclo_euleriano.txt')
+    g1 = Graph('nets/eulerian_cycle_koenigsberger_bruecken.txt')
     hH1 = HierHolzer(g1)
     has_cycle, eu_cycle = hH1.hier_holzer()
     if has_cycle:
         cycle_string = ""
-        for v in eu_cycle:
-            cycle_string += " - " + v.label
+        for node in eu_cycle:
+            cycle_string += " - " + node.label
         print(cycle_string[2:])
     else:
-        print("There is no euclidian cycle on the current net")
+        print("There is no eulerian cycle on the current net")
