@@ -5,7 +5,7 @@ class HierHolzer:
     def __init__(self, g: Graph):
         self.g = g
 
-    def search_euler_sub_cycle(self, g: Graph, v: Node, c: dict):
+    def search_euler_sub_cycle(self, g: Graph, v: Node, c: dict) -> (bool, Union[None, List[Node]]):
         cycle = [v]
         current_node = v
         first_iteration = True
@@ -45,7 +45,7 @@ class HierHolzer:
                 cycle = cycle[:node_index] + sub_cycle + cycle[node_index + 1:]
         return True, cycle
 
-    def hier_holzer(self):
+    def hier_holzer(self) -> (bool, Union[None, List[Node]]):
         visited_edges = {a: False for a in self.g.A}
         chosen_node = 0
         for v in self.g.adjacency.keys():
