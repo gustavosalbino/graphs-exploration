@@ -1,8 +1,8 @@
-from graph import *
+from src.graph import *
 
 
 class BreadthFirstSearch:
-    def __init__(self, g: Graph, first_index: str):
+    def __init__(self, g: Graph, first_index: str, print_levels=True):
         self.first_node = g.V.get(first_index)
         self.node_visited = {v.index: False for v in g.V.values()}
         self.node_distance = {v.index: float('inf') for v in g.V.values()}
@@ -14,7 +14,8 @@ class BreadthFirstSearch:
         self.open_nodes = [self.first_node]
 
         self._explore(g)
-        self._print_tree_levels(g)
+        if print_levels:
+            self._print_tree_levels(g)
 
     def _explore(self, g: Graph):
         while self.open_nodes:
