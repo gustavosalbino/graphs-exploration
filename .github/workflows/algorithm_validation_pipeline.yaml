@@ -1,6 +1,10 @@
 name: Algorithms validation
 
-on: push
+on:
+  push:
+    branches:
+      - main
+      - develop
 
 jobs:
   run-tests:
