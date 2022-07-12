@@ -1,4 +1,4 @@
-from graph import *
+from src.graph import *
 
 
 class Dijkstra:
@@ -23,7 +23,7 @@ class Dijkstra:
             self.print_distances()
 
     def explore(self):
-        while True in [True for v in self.g.V.values() if v.index not in self.visited]:
+        while len(self.visited) != len(self.g.V.values()):
             u = min([v for v in self.g.V.values() if v.index not in self.visited],
                     key=lambda node: self.nodes_info[node.index].get('distance'))
             self.visited.add(u.index)
@@ -38,14 +38,15 @@ class Dijkstra:
     def print_distances(self):
         for v in self.g.V.keys():
             path = []
-            current_node = v
-            first_node = self.first_index
-            while current_node != first_node:
-                path.append(current_node)
-                current_node = self.nodes_info[current_node]['predecessor'].index
-            path.append(first_node)
-
             peso = self.nodes_info.get(v).get('distance')
+            if peso != float('inf'):
+                current_node = v
+                first_node = self.first_index
+                while current_node != first_node:
+                    path.append(current_node)
+                    current_node = self.nodes_info[current_node]['predecessor'].index
+                path.append(first_node)
+
             path.reverse()
 
             print("{}: {}; d={}".format(v, path, peso))
